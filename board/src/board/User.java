@@ -19,4 +19,8 @@ public class User {
 	public String getPassword() {
 		return this.password;
 	}
+	
+	public User clone() {
+		return new User(this.id, this.password);
+	}
 }
