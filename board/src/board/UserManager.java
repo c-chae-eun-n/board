@@ -49,4 +49,10 @@ public class UserManager {
 		return -1;
 	}
 	
+	// Read
+	public User getUser(int index) {
+		User user = userList.get(index);
+		return user;
+	}
+	
 }
