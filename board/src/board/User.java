@@ -23,4 +23,9 @@ public class User {
 	public User clone() {
 		return new User(this.id, this.password);
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s/%s", this.id, this.password);
+	}
 }
