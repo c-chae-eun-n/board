@@ -55,4 +55,14 @@ public class UserManager {
 		return user;
 	}
 	
+	// Delete 
+	public void removeUser(int index) {
+		if(index < 0 || index >= userList.size()) {
+			System.err.println("유효하지 않은 범위입니다.");
+			return;
+		}
+		
+		userList.remove(index);
+	}
+	
 }
