@@ -40,4 +40,13 @@ public class UserManager {
 		return new User();
 	}
 	
+	public int findUserindexById(String id) {
+		for(int i=0; i<userList.size(); i++) {
+			User user = userList.get(i);
+			if(user.getId().equals(id))
+				return i;
+		}
+		return -1;
+	}
+	
 }
