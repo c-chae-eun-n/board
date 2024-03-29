@@ -65,4 +65,8 @@ public class UserManager {
 		userList.remove(index);
 	}
 	
+	public int userSize() {
+		return userList.size();
+	}
+	
 }
