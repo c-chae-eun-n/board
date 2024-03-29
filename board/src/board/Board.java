@@ -1,12 +1,13 @@
 package board;
 
 public class Board {
-	String title;
-	String body;
+	String title, body;
+	User user;
 	
-	public Board(String title, String body) {
+	public Board(String title, String body, User user) {
 		this.title = title;
 		this.body = body;
+		this.user = user;
 	}
 	
 	public String getTitle() {
@@ -23,6 +24,10 @@ public class Board {
 	
 	public void setBody(String body) {
 		this.body = body;
+	}
+	
+	public User getUser() {
+		return this.user;
 	}
 	
 	@Override
