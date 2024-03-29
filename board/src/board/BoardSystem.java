@@ -18,9 +18,11 @@ public class BoardSystem {
 	private UserManager userManager = UserManager.getInstance();
 	
 	private int log;
+	private boolean isExit;
 	
 	public BoardSystem() {
 		log = -1;
+		isExit = false;
 	}
 	
 	private void printMainMenu() {
@@ -76,12 +78,16 @@ public class BoardSystem {
 			
 		}
 		else if(select == EXIT) {
-			
+			isExit();
 		}
 	}
 	
+	private void isExit() {
+		isExit = true;
+	}
+	
 	public void run() {
-		while(true) {
+		while(!isExit) {
 			printMainMenu();
 			int select = inputNumber("메뉴 번호 입력");
 			runMainMenu(select);
