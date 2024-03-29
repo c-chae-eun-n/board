@@ -10,7 +10,7 @@ public class BoardManager implements CRUD {
 	}
 
 	@Override
-	public void crate(User user) {
+	public void create(User user) {
 		// TODO Auto-generated method stub
 		
 	}
