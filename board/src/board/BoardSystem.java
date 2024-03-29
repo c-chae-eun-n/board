@@ -26,13 +26,13 @@ public class BoardSystem {
 	private int startRow = 0;			// 현재 페이지의 게시글 시작 번호
 	private int endRow = 0;				// 현재 페이지의 게시글 마지막 번호
 	
-	private int log;
+	private User log;
 	private boolean isExit;
 	
 	public BoardSystem() {
 		userManager = new UserManager();
 		boardManager = new BoardManager(userManager);
-		log = -1;
+		log = null;
 		isExit = false;
 	}
 	
@@ -73,12 +73,12 @@ public class BoardSystem {
 		boolean result = false;
 		
 		if(typeCode == TYPE_OUT) {
-			if(log == -1)
+			if(log == null)
 				result = true;
 			else
 				System.err.println("로그아웃 후 사용 가능합니다.");
 		}else if(typeCode == TYPE_IN) {
-			if(log != -1)
+			if(log != null)
 				result = true;
 			else
 				System.err.println("로그인 후 사용 가능합니다.");
@@ -123,11 +123,20 @@ public class BoardSystem {
 	}
 	
 	private void login() {
-
+		String id = inputString("id");
+		String password = inputString("password");
+		User user = userManager.checkLog(id, password);
+		if(user == null) {
+			System.err.println("회원정보를 다시 확인하세요.");
+			return;
+		}
+		log = user;
+		System.out.println("로그인이 완료되었습니다.");
 	}
 	
 	private void logout() {
-
+		log = null;
+		System.out.println("로그아웃이 완료되었습니다.");
 	}
 	
 	private void isExit() {
