@@ -13,6 +13,9 @@ public class BoardSystem {
 	private final int VIEW = 7;
 	private final int EXIT = 0;
 	
+	private final int TYPE_OUT = 1;
+	private final int TYPE_IN = 2;
+	
 	private Scanner scan = new Scanner(System.in);
 	
 	private UserManager userManager = UserManager.getInstance();
@@ -58,26 +61,44 @@ public class BoardSystem {
 		return scan.next();
 	}
 	
+	private boolean checkLog(int typeCode) {
+		boolean result = false;
+		
+		if(typeCode == TYPE_OUT) {
+			if(log == -1)
+				result = true;
+			else
+				System.err.println("로그아웃 후 사용 가능합니다.");
+		}else if(typeCode == TYPE_IN) {
+			if(log != -1)
+				result = true;
+			else
+				System.err.println("로그인 후 사용 가능합니다.");
+		}
+		
+		return result;
+	}
+	
 	private void runMainMenu(int select) {
-		if(select == JOIN) {
+		if(select == JOIN && checkLog(TYPE_OUT)) {
 			join();
 		}
-		else if(select == LEAVE) {
+		else if(select == LEAVE && checkLog(TYPE_IN)) {
 			
 		}
-		else if(select == LOGIN) {
+		else if(select == LOGIN && checkLog(TYPE_OUT)) {
 			login();
 		}
-		else if(select == LOGOUT) {
+		else if(select == LOGOUT && checkLog(TYPE_IN)) {
 			logout();
 		}
-		else if(select == POST) {
+		else if(select == POST && checkLog(TYPE_IN)) {
 			
 		}
-		else if(select == DELETE) {
+		else if(select == DELETE && checkLog(TYPE_IN)) {
 			
 		}
-		else if(select == VIEW) {
+		else if(select == VIEW && checkLog(TYPE_IN)) {
 			
 		}
 		else if(select == EXIT) {
