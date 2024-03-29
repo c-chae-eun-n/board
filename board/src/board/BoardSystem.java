@@ -101,7 +101,7 @@ public class BoardSystem {
 			logout();
 		}
 		else if(select == POST && checkLog(TYPE_IN)) {
-			
+			post();
 		}
 		else if(select == DELETE && checkLog(TYPE_IN)) {
 			
@@ -137,6 +137,12 @@ public class BoardSystem {
 	private void logout() {
 		log = null;
 		System.out.println("로그아웃이 완료되었습니다.");
+	}
+	
+	private void post() {
+		boardManager.create(log);
+		boardManager.printBoardAll();
+		userManager.printUserBoardAll(log);
 	}
 	
 	private void isExit() {
