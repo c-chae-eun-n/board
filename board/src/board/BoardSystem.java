@@ -66,7 +66,7 @@ public class BoardSystem {
 			
 		}
 		else if(select == LOGIN) {
-			
+			login();
 		}
 		else if(select == LOGOUT) {
 			
@@ -97,6 +97,26 @@ public class BoardSystem {
 		
 		userManager.createUser(id, password);
 		System.out.println("회원가입이 완료되었습니다.");
+	}
+	
+	private void login() {
+		String id = inputString("id");
+		String password = inputString("password");
+		
+		int userIndex = userManager.findUserindexById(id);
+		if(userIndex == -1) {
+			System.err.println("존재하지 않는 회원입니다.");
+			return;
+		}
+		User user = userManager.getUser(userIndex);
+		
+		if(!user.getId().equals(id) || !user.getPassword().equals(password)) {
+			System.err.println("id 또는 password가 올바르지 않습니다.");
+			return;
+		}
+		
+		log = userIndex;
+		System.out.println("로그인이 완료되었습니다.");
 	}
 	
 	private void isExit() {
