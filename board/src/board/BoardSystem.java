@@ -18,7 +18,12 @@ public class BoardSystem {
 	
 	private Scanner scan = new Scanner(System.in);
 	
-	private UserManager userManager = UserManager.getInstance();
+	
+	private int pageSize = 5;			// 한 페이지에 보여줄 게시글 수
+	private int curPageNum = 1;			// 현재 페이지 번호
+	private int pageCount = 1;			// 전체 페이지 개수
+	private int startRow = 0;			// 현재 페이지의 게시글 시작 번호
+	private int endRow = 0;				// 현재 페이지의 게시글 마지막 번호
 	
 	private int log;
 	private boolean isExit;
@@ -107,42 +112,15 @@ public class BoardSystem {
 	}
 	
 	private void join() {
-		String id = inputString("id");
-		String password = inputString("password");
-		
-		User user = userManager.findUserById(id);
-		if(user.getId() != null) {
-			System.err.println("이미 존재하는 아이디입니다.");
-			return;
-		}
-		
-		userManager.createUser(id, password);
-		System.out.println("회원가입이 완료되었습니다.");
+
 	}
 	
 	private void login() {
-		String id = inputString("id");
-		String password = inputString("password");
-		
-		int userIndex = userManager.findUserindexById(id);
-		if(userIndex == -1) {
-			System.err.println("존재하지 않는 회원입니다.");
-			return;
-		}
-		User user = userManager.getUser(userIndex);
-		
-		if(!user.getId().equals(id) || !user.getPassword().equals(password)) {
-			System.err.println("id 또는 password가 올바르지 않습니다.");
-			return;
-		}
-		
-		log = userIndex;
-		System.out.println("로그인이 완료되었습니다.");
+
 	}
 	
 	private void logout() {
-		log = -1;
-		System.out.println("로그아웃이 완료되었습니다.");
+
 	}
 	
 	private void isExit() {
@@ -151,7 +129,6 @@ public class BoardSystem {
 	
 	public void run() {
 		while(!isExit) {
-			userManager.printUserAll();
 			printMainMenu();
 			int select = inputNumber("메뉴 번호 입력");
 			runMainMenu(select);
