@@ -35,9 +35,9 @@ public class Board {
 		String info = "";
 		
 		info += "================\n";
-		info += " " + this.title + "\n";
+		info += "title : " + this.title + "\n";
 		info += "----------------\n";
-		info += " " + this.body + "\n";
+		info += "content : " + this.body + "\n";
 		info += "================\n";
 		
 		return info;
