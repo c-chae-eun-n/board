@@ -69,4 +69,10 @@ public class UserManager {
 		return userList.size();
 	}
 	
+	// 검수용
+	public void printUserAll() {
+		for(User user : userList)
+			System.out.println(user);
+	}
+	
 }
