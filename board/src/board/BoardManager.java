@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class BoardManager implements CRUD {
 	private ArrayList<Board> boardList;
+	private UserManager userManager;
 
-	public BoardManager() {
+	public BoardManager(UserManager userManager) {
+		this.userManager = userManager;
 		boardList = new ArrayList<>();
 	}
 
