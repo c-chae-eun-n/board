@@ -2,6 +2,7 @@ package board;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserManager implements CRUD {
@@ -20,11 +21,13 @@ public class UserManager implements CRUD {
 		}
 		ArrayList<Board> userBoard = new ArrayList<>();
 		userList.put(user, userBoard);
+		System.out.println("회원가입이 완료되었습니다.");
 	}
 	
 	private User isValid(User user) {
-		if(userList.containsKey(user)) {
-			return new User();
+		for(User key : userList.keySet()) {
+			if(key.getId().equals(user.getId()))
+				return new User();
 		}
 		return user;
 	}
@@ -47,6 +50,10 @@ public class UserManager implements CRUD {
 		
 	}
 
-	
+	// 검수용
+	public void printUserAll() {
+		List keySet = new ArrayList(userList.keySet());
+		System.out.println(keySet);
+	}
 	
 }
