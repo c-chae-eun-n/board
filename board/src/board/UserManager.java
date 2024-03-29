@@ -14,8 +14,19 @@ public class UserManager implements CRUD {
 
 	@Override
 	public void crate(User user) {
-		// TODO Auto-generated method stub
-		
+		if(isValid(user).getId() == null) {
+			System.err.println("이미 존재하는 아이디입니다.");
+			return;
+		}
+		ArrayList<Board> userBoard = new ArrayList<>();
+		userList.put(user, userBoard);
+	}
+	
+	private User isValid(User user) {
+		if(userList.containsKey(user)) {
+			return new User();
+		}
+		return user;
 	}
 
 	@Override
