@@ -9,8 +9,14 @@ public class BoardSystem {
 	private final int POST = 5;
 	private final int DELETE = 6;
 	private final int VIEW = 7;
-
 	
+	private UserManager userManager = UserManager.getInstance();
+	
+	private int log;
+	
+	public BoardSystem() {
+		log = -1;
+	}
 	
 	
 	public void run() {
