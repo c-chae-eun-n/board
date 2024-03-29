@@ -53,9 +53,38 @@ public class BoardSystem {
 		return scan.next();
 	}
 	
+	private void runMainMenu(int select) {
+		if(select == JOIN) {
+			
+		}
+		else if(select == LEAVE) {
+			
+		}
+		else if(select == LOGIN) {
+			
+		}
+		else if(select == LOGOUT) {
+			
+		}
+		else if(select == POST) {
+			
+		}
+		else if(select == DELETE) {
+			
+		}
+		else if(select == VIEW) {
+			
+		}
+		else if(select == EXIT) {
+			
+		}
+	}
+	
 	public void run() {
 		while(true) {
 			printMainMenu();
+			int select = inputNumber("메뉴 번호 입력");
+			runMainMenu(select);
 		}
 	}
 }
