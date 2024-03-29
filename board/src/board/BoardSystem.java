@@ -17,7 +17,8 @@ public class BoardSystem {
 	private final int TYPE_IN = 2;
 	
 	private Scanner scan = new Scanner(System.in);
-	
+	private UserManager userManager;
+	private BoardManager boardManager;
 	
 	private int pageSize = 5;			// 한 페이지에 보여줄 게시글 수
 	private int curPageNum = 1;			// 현재 페이지 번호
@@ -29,6 +30,8 @@ public class BoardSystem {
 	private boolean isExit;
 	
 	public BoardSystem() {
+		userManager = new UserManager();
+		boardManager = new BoardManager(userManager);
 		log = -1;
 		isExit = false;
 	}
@@ -112,7 +115,11 @@ public class BoardSystem {
 	}
 	
 	private void join() {
-
+		String id = inputString("id");
+		String password = inputString("password");
+		User user = new User(id, password);
+		
+		userManager.create(user);
 	}
 	
 	private void login() {
@@ -129,6 +136,7 @@ public class BoardSystem {
 	
 	public void run() {
 		while(!isExit) {
+			userManager.printUserAll();
 			printMainMenu();
 			int select = inputNumber("메뉴 번호 입력");
 			runMainMenu(select);
