@@ -13,7 +13,7 @@ public class UserManager implements CRUD {
 	}
 
 	@Override
-	public void crate(User user) {
+	public void create(User user) {
 		if(isValid(user).getId() == null) {
 			System.err.println("이미 존재하는 아이디입니다.");
 			return;
