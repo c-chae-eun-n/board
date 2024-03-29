@@ -62,4 +62,10 @@ public class BoardManager implements CRUD {
 		return data;
 	}
 	
+	public void printBoardAll() {
+		for(Board board : boardList) {
+			System.out.println(board);
+		}
+	}
+	
 }
