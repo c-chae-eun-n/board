@@ -69,7 +69,7 @@ public class BoardSystem {
 			login();
 		}
 		else if(select == LOGOUT) {
-			
+			logout();
 		}
 		else if(select == POST) {
 			
@@ -117,6 +117,11 @@ public class BoardSystem {
 		
 		log = userIndex;
 		System.out.println("로그인이 완료되었습니다.");
+	}
+	
+	private void logout() {
+		log = -1;
+		System.out.println("로그아웃이 완료되었습니다.");
 	}
 	
 	private void isExit() {
