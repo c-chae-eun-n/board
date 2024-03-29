@@ -36,7 +36,7 @@ public class Board {
 		
 		info += "================\n";
 		info += " " + this.title + "\n";
-		info += "================\n";
+		info += "----------------\n";
 		info += " " + this.body + "\n";
 		info += "================\n";
 		
