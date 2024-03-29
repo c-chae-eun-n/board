@@ -60,7 +60,7 @@ public class BoardSystem {
 	
 	private void runMainMenu(int select) {
 		if(select == JOIN) {
-			
+			join();
 		}
 		else if(select == LEAVE) {
 			
@@ -85,12 +85,27 @@ public class BoardSystem {
 		}
 	}
 	
+	private void join() {
+		String id = inputString("id");
+		String password = inputString("password");
+		
+		User user = userManager.findUserById(id);
+		if(user.getId() != null) {
+			System.err.println("이미 존재하는 아이디입니다.");
+			return;
+		}
+		
+		userManager.createUser(id, password);
+		System.out.println("회원가입이 완료되었습니다.");
+	}
+	
 	private void isExit() {
 		isExit = true;
 	}
 	
 	public void run() {
 		while(!isExit) {
+			userManager.printUserAll();
 			printMainMenu();
 			int select = inputNumber("메뉴 번호 입력");
 			runMainMenu(select);
