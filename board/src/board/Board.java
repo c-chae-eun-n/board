@@ -24,4 +24,17 @@ public class Board {
 	public void setBody(String body) {
 		this.body = body;
 	}
+	
+	@Override
+	public String toString() {
+		String info = "";
+		
+		info += "================\n";
+		info += " " + this.title + "\n";
+		info += "================\n";
+		info += " " + this.body + "\n";
+		info += "================\n";
+		
+		return info;
+	}
 }
