@@ -49,11 +49,31 @@ public class UserManager implements CRUD {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public User checkLog(String id, String password) {
+		User user = null;
+		for(User key : userList.keySet()) {
+			if(key.getId().equals(id) && key.getPassword().equals(password))
+				user = key;
+		}
+		return user;
+	}
+	
+	public void addUserBoard(User user, Board board) {
+		userList.get(user).add(board);
+	}
 
 	// 검수용
 	public void printUserAll() {
 		List keySet = new ArrayList(userList.keySet());
 		System.out.println(keySet);
+	}
+	
+	public void printUserBoardAll(User user) {
+		for(int i=0; i<userList.get(user).size(); i++) {
+			Board board = userList.get(user).get(i);
+			System.out.println(board);
+		}
 	}
 	
 }
