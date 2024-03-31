@@ -62,6 +62,18 @@ public class UserManager implements CRUD {
 	public void addUserBoard(User user, Board board) {
 		userList.get(user).add(board);
 	}
+	
+	public void printMyBoardAll(User user) {
+		System.out.println("=== 내 게시물 ===");
+		if(userList.get(user).size() == 0) {
+			System.out.println("게시물이 없습니다.");
+			return;
+		}
+		for(int i=0; i<userList.get(user).size(); i++) {
+			System.out.printf("[%d] ", i+1);
+			System.out.println(userList.get(user).get(i).getTitle());
+		}
+	}
 
 	// 검수용
 	public void printUserAll() {
