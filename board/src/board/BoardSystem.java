@@ -126,7 +126,7 @@ public class BoardSystem {
 			view();
 		}
 		else if(sel == UPDATE_MYPOST) {
-			
+			update();
 		}
 		else if(sel == DELETE_MYPOST) {
 			
@@ -173,6 +173,19 @@ public class BoardSystem {
 			}
 			
 			userManager.printMyBoard(log, sel-1);
+		}
+	}
+	
+	private void update() {
+		while(true) {
+			boardManager.read(log);
+			int sel = inputNumber("수정할 게시물 번호 입력(종료 : 0번)");
+			if(sel == EXIT) {
+				break;
+			}
+			
+			boardManager.updateMyPost(log, sel-1);
+			System.out.println("수정이 완료되었습니다.");
 		}
 	}
 	
