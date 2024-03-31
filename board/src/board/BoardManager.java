@@ -28,10 +28,11 @@ public class BoardManager implements CRUD {
 
 	@Override
 	public void read(User user) {
+		int index = 1;
 		for(int i=0; i<boardList.size(); i++) {
 			Board board = boardList.get(i);
 			if(board.getUser().equals(user)) {
-				System.out.println(board);
+				System.out.printf("[%d] %s\n", index++, board.getTitle());
 			}
 		}
 	}
@@ -69,6 +70,19 @@ public class BoardManager implements CRUD {
 	public void printBoardAll() {
 		for(Board board : boardList) {
 			System.out.println(board);
+		}
+	}
+	
+	public void updateMyPost(User user, int index) {
+		String target = userManager.findTitleByIndex(user, index);
+		
+		for(int i=0; i<boardList.size(); i++) {
+			if(target.equals(boardList.get(i).getTitle())){
+				String title = inputString("title");
+				String body = inputString("content");
+				boardList.get(i).setTitle(title);
+				boardList.get(i).setBody(body);
+			}
 		}
 	}
 	
