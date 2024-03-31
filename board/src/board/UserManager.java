@@ -73,6 +73,14 @@ public class UserManager implements CRUD {
 	public void printMyBoard(User user, int sel) {
 		System.out.println(userList.get(user).get(sel));
 	}
+	
+	public String findTitleByIndex(User user, int index) {
+		String title = null;
+		
+		title = userList.get(user).get(index).getTitle();
+		
+		return title;
+	}
 
 	// 검수용
 	public void printUserAll() {
