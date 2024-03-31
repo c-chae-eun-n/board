@@ -52,6 +52,12 @@ public class BoardSystem {
 		System.out.println("================");
 	}
 	
+	private void printMypageMenu() {
+		System.out.println("[1] 내 게시물 조회");
+		System.out.println("[2] 내 게시물 수정");
+		System.out.println("[3] 내 게시물 삭제");
+	}
+	
 	private int inputNumber(String message) {
 		int number = -1;
 		
