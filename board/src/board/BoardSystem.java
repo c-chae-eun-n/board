@@ -112,7 +112,9 @@ public class BoardSystem {
 			post();
 		}
 		else if(select == MYPAGE && checkLog(TYPE_IN)) {
-			
+			printMypageMenu();
+			int sel = inputNumber("메뉴 번호 입력");
+			runMypageMenu(sel);
 		}
 		else if(select == EXIT) {
 			isExit();
@@ -148,6 +150,18 @@ public class BoardSystem {
 		boardManager.create(log);
 		boardManager.printBoardAll();
 		userManager.printUserBoardAll(log);
+	}
+	
+	private void runMypageMenu(int sel) {
+		if(sel == VIEW_MYPOST) {
+			
+		}
+		else if(sel == UPDATE_MYPOST) {
+			
+		}
+		else if(sel == DELETE_MYPOST) {
+			
+		}
 	}
 	
 	private void isExit() {
