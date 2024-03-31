@@ -121,6 +121,18 @@ public class BoardSystem {
 		}
 	}
 	
+	private void runMypageMenu(int sel) {
+		if(sel == VIEW_MYPOST) {
+			view();
+		}
+		else if(sel == UPDATE_MYPOST) {
+			
+		}
+		else if(sel == DELETE_MYPOST) {
+			
+		}
+	}
+	
 	private void join() {
 		String id = inputString("id");
 		String password = inputString("password");
@@ -152,15 +164,15 @@ public class BoardSystem {
 		userManager.printUserBoardAll(log);
 	}
 	
-	private void runMypageMenu(int sel) {
-		if(sel == VIEW_MYPOST) {
+	private void view() {
+		while(true) {
+			userManager.read(log);
+			int sel = inputNumber("조회할 게시물 번호 입력(종료 : 0번)");
+			if(sel == EXIT) {
+				break;
+			}
 			
-		}
-		else if(sel == UPDATE_MYPOST) {
-			
-		}
-		else if(sel == DELETE_MYPOST) {
-			
+			userManager.printMyBoard(log, sel-1);
 		}
 	}
 	
