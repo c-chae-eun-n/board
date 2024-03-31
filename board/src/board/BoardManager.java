@@ -28,8 +28,12 @@ public class BoardManager implements CRUD {
 
 	@Override
 	public void read(User user) {
-		// TODO Auto-generated method stub
-		
+		for(int i=0; i<boardList.size(); i++) {
+			Board board = boardList.get(i);
+			if(board.getUser().equals(user)) {
+				System.out.println(board);
+			}
+		}
 	}
 
 	@Override
