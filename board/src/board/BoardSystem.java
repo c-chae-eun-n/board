@@ -9,9 +9,12 @@ public class BoardSystem {
 	private final int LOGIN = 3;
 	private final int LOGOUT = 4;
 	private final int POST = 5;
-	private final int DELETE = 6;
-	private final int VIEW = 7;
+	private final int MYPAGE = 6;
 	private final int EXIT = 0;
+	
+	private final int VIEW_MYPOST = 1;
+	private final int UPDATE_MYPOST = 2;
+	private final int DELETE_MYPOST = 3;
 	
 	private final int TYPE_OUT = 1;
 	private final int TYPE_IN = 2;
@@ -44,8 +47,7 @@ public class BoardSystem {
 		System.out.println(" [3] 로그인");
 		System.out.println(" [4] 로그아웃");
 		System.out.println(" [5] 게시물 작성");
-		System.out.println(" [6] 게시물 삭제");
-		System.out.println(" [7] 게시물 조회");
+		System.out.println(" [6] 마이페이지");
 		System.out.println(" [0] 종료");
 		System.out.println("================");
 	}
@@ -103,10 +105,7 @@ public class BoardSystem {
 		else if(select == POST && checkLog(TYPE_IN)) {
 			post();
 		}
-		else if(select == DELETE && checkLog(TYPE_IN)) {
-			
-		}
-		else if(select == VIEW && checkLog(TYPE_IN)) {
+		else if(select == MYPAGE && checkLog(TYPE_IN)) {
 			
 		}
 		else if(select == EXIT) {
