@@ -39,8 +39,28 @@ public class BoardSystem {
 		isExit = false;
 	}
 	
+	private void paging() {
+		// paging
+		int count = boardManager.boardListSize();
+		
+		startRow = (curPageNum - 1) * pageSize;
+		endRow = startRow + pageSize - 1;
+		endRow = endRow >= count ? count - 1 : endRow;
+		
+		pageCount = count / pageSize;
+		pageCount = count % pageSize > 0 ? ++ pageCount : pageCount;
+		
+		System.out.println("----------------");
+		for(int i=startRow; i<=endRow; i++) {
+			System.out.printf("%d) %s\n", i+1, boardManager.getBoard(i));
+		}
+		System.out.println("----------------");
+		System.out.printf("      %d/%d\n", curPageNum, pageCount);
+	}
+	
 	private void printMainMenu() {
 		System.out.println("=== 콘솔 게시판 ===");
+		paging();
 		System.out.println("================");
 		System.out.println(" [1] 회원가입");
 		System.out.println(" [2] 회원탈퇴");
