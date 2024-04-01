@@ -57,7 +57,7 @@ public class BoardSystem {
 		
 		System.out.println("--------------------------");
 		for(int i=startRow; i<=endRow; i++) {
-			System.out.printf("%d) %s\n", i+1, boardManager.getBoard(i));
+			System.out.printf("%d) %s\n", i+1, boardManager.getBoardTitle(i));
 		}
 		System.out.println("--------------------------");
 		System.out.printf("  ◀ 이전(a)  %d/%d  다음(d) ▶\n", curPageNum, pageCount);
@@ -223,7 +223,11 @@ public class BoardSystem {
 	}
 	
 	private void view() {
+		int sel = inputNumber("조회할 게시글 번호 입력");
+		if(sel < startRow || sel > endRow) 
+			return;
 		
+		System.out.println(boardManager.getBoard(sel-1));
 	}
 	
 	private void viewMyPost() {
