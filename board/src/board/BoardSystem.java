@@ -57,7 +57,7 @@ public class BoardSystem {
 		
 		System.out.println("--------------------------");
 		for(int i=startRow; i<=endRow; i++) {
-			System.out.printf("%d) %s\n", i+1, boardManager.getBoardTitle(i));
+			System.out.printf(" %d) %s\n", i+1, boardManager.getBoardTitle(i));
 		}
 		System.out.println("--------------------------");
 		System.out.printf("  ◀ 이전(a)  %d/%d  다음(d) ▶\n", curPageNum, pageCount);
@@ -79,9 +79,9 @@ public class BoardSystem {
 	}
 	
 	private void printMypageMenu() {
-		System.out.println("[1] 내 게시물 조회");
-		System.out.println("[2] 내 게시물 수정");
-		System.out.println("[3] 내 게시물 삭제");
+		System.out.println(" [1] 내 게시글 조회");
+		System.out.println(" [2] 내 게시글 수정");
+		System.out.println(" [3] 내 게시글 삭제");
 	}
 	
 	private int inputNumber(String message) {
