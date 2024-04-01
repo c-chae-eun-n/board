@@ -64,7 +64,7 @@ public class BoardSystem {
 	}
 	
 	private void printMainMenu() {
-		System.out.println("======== 콘솔 게시판 ========");
+		System.out.println("\n======== 콘솔 게시판 ========");
 		paging();
 		System.out.println("==========================");
 		System.out.println(" [1] 회원가입");
@@ -79,9 +79,11 @@ public class BoardSystem {
 	}
 	
 	private void printMypageMenu() {
+		System.out.println("\n======== 마이 페이지 ========");
 		System.out.println(" [1] 내 게시글 조회");
 		System.out.println(" [2] 내 게시글 수정");
 		System.out.println(" [3] 내 게시글 삭제");
+		System.out.println("==========================");
 	}
 	
 	private int inputNumber(String message) {
