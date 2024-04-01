@@ -80,6 +80,8 @@ public class BoardManager implements CRUD {
 	
 	public void updateMyPost(User user, int index) {
 		String target = userManager.findTitleByIndex(user, index);
+		if(target == null)
+			return;
 		
 		for(int i=0; i<boardList.size(); i++) {
 			if(target.equals(boardList.get(i).getTitle())){
@@ -94,6 +96,8 @@ public class BoardManager implements CRUD {
 	
 	public void deleteMyPost(User user, int index) {
 		Board target = userManager.deleteMyPost(user, index);
+		if(target == null)
+			return;
 		
 		for(int i=0; i<boardList.size(); i++) {
 			if(target.equals(boardList.get(i))){
