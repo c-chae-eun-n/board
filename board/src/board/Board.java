@@ -1,8 +1,8 @@
 package board;
 
 public class Board {
-	String title, body;
-	User user;
+	private String title, body;
+	private User user;
 	
 	public Board(String title, String body, User user) {
 		this.title = title;
