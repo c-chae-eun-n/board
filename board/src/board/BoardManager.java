@@ -3,60 +3,70 @@ package board;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BoardManager implements CRUD {
+public class BoardManager implements CRUDManager<Board> {
 	
 	private Scanner scan = new Scanner(System.in);
 	
 	private ArrayList<Board> boardList;
 	private UserManager userManager;
 
-	public BoardManager(UserManager userManager) {
+	private BoardManager(UserManager userManager) {
 		this.userManager = userManager;
 		boardList = new ArrayList<>();
 	}
+	
+	private static BoardManager instance = new BoardManager(UserManager.getInstance());
+	
+	public static BoardManager getInstance() {
+		return instance;
+	}
 
 	@Override
-	public void create(User user) {
-		String title = inputString("title");
-		String body = inputString("content");
-		Board board = new Board(title, body, user);
-		
+	public void create(Board board) {
 		boardList.add(board);
-		userManager.addUserBoard(user, board);
 		System.out.println("작성이 완료되었습니다.");
 	}
 
 	@Override
-	public void read(User user) {
-		System.out.println("\n======== 내 게시판 ========");
-		int index = 1;
+	public void read(Board board) {
+//		System.out.println("\n======== 내 게시판 ========");
+//		int index = 1;
+//		for(int i=0; i<boardList.size(); i++) {
+//			Board board = boardList.get(i);
+//			if(board.getUser().equals(user)) {
+//				System.out.printf(" [%d] %s\n", index++, board.getTitle());
+//			}
+//		}
+	}
+
+	@Override
+	public void update(Board board) {
+		if(board == null)
+			return;
+		
 		for(int i=0; i<boardList.size(); i++) {
-			Board board = boardList.get(i);
-			if(board.getUser().equals(user)) {
-				System.out.printf(" [%d] %s\n", index++, board.getTitle());
+			if(board.equals(boardList.get(i))){
+				String title = inputString("title");
+				String body = inputString("content");
+				boardList.get(i).setTitle(title);
+				boardList.get(i).setBody(body);
 			}
 		}
 	}
 
 	@Override
-	public void update(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(User user) {
-		userManager.delete(user);
-		
-		for(int i=0; i<boardList.size(); i++) {
-			if(boardList.get(i).getUser().equals(user)) {
-				boardList.remove(i);
-				i--;
-			}
-		}
+	public void delete(Board board) {
+//		userManager.delete(user);
+//		
+//		for(int i=0; i<boardList.size(); i++) {
+//			if(boardList.get(i).getUser().equals(user)) {
+//				boardList.remove(i);
+//				i--;
+//			}
+//		}
 	}
 	
-	private String inputString(String message) {
+	public String inputString(String message) {
 		System.out.println(message + " : ");
 		System.out.println("[.] 완료(문장에 끝에 .을 붙이면 종료)");
 		
@@ -77,21 +87,6 @@ public class BoardManager implements CRUD {
 	public void printBoardAll() {
 		for(Board board : boardList) {
 			System.out.println(board);
-		}
-	}
-	
-	public void updateMyPost(User user, int index) {
-		String target = userManager.findTitleByIndex(user, index);
-		if(target == null)
-			return;
-		
-		for(int i=0; i<boardList.size(); i++) {
-			if(target.equals(boardList.get(i).getTitle())){
-				String title = inputString("title");
-				String body = inputString("content");
-				boardList.get(i).setTitle(title);
-				boardList.get(i).setBody(body);
-			}
 		}
 	}
 	
