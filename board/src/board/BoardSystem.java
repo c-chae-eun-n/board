@@ -19,6 +19,9 @@ public class BoardSystem {
 	private final int TYPE_OUT = 1;
 	private final int TYPE_IN = 2;
 	
+	private final String PREVIOUS = "a";
+	private final String NEXT = "d";
+	
 	private Scanner scan = new Scanner(System.in);
 	private UserManager userManager;
 	private BoardManager boardManager;
