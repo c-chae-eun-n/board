@@ -9,7 +9,8 @@ public class BoardSystem {
 	private final int LOGIN = '3';
 	private final int LOGOUT = '4';
 	private final int POST = '5';
-	private final int MYPAGE = '6';
+	private final int VIEW = '6';
+	private final int MYPAGE = '7';
 	private final int EXIT = '0';
 	
 	private final int VIEW_MYPOST = 1;
@@ -71,7 +72,8 @@ public class BoardSystem {
 		System.out.println(" [3] 로그인");
 		System.out.println(" [4] 로그아웃");
 		System.out.println(" [5] 게시물 작성");
-		System.out.println(" [6] 마이페이지");
+		System.out.println(" [6] 게시글 조회");
+		System.out.println(" [7] 마이페이지");
 		System.out.println(" [0] 종료");
 		System.out.println("==========================");
 	}
@@ -141,6 +143,9 @@ public class BoardSystem {
 		else if(select == POST && checkLog(TYPE_IN)) {
 			post();
 		}
+		else if(select == VIEW && checkLog(TYPE_IN)) {
+			view();
+		}
 		else if(select == MYPAGE && checkLog(TYPE_IN)) {
 			printMypageMenu();
 			int sel = inputNumber("메뉴 번호 입력");
@@ -153,13 +158,13 @@ public class BoardSystem {
 	
 	private void runMypageMenu(int sel) {
 		if(sel == VIEW_MYPOST) {
-			view();
+			viewMyPost();
 		}
 		else if(sel == UPDATE_MYPOST) {
-			update();
+			updateMyPost();
 		}
 		else if(sel == DELETE_MYPOST) {
-			delete();
+			deleteMyPost();
 		}
 	}
 	
@@ -218,6 +223,10 @@ public class BoardSystem {
 	}
 	
 	private void view() {
+		
+	}
+	
+	private void viewMyPost() {
 		if(userManager.myBoardSize(log) == 0) {
 			System.out.println("게시물이 없습니다.");
 			return;
@@ -233,7 +242,7 @@ public class BoardSystem {
 		}
 	}
 	
-	private void update() {
+	private void updateMyPost() {
 		if(userManager.myBoardSize(log) == 0) {
 			System.out.println("게시물이 없습니다.");
 			return;
@@ -250,7 +259,7 @@ public class BoardSystem {
 		}
 	}
 	
-	private void delete() {
+	private void deleteMyPost() {
 		if(userManager.myBoardSize(log) == 0) {
 			System.out.println("게시물이 없습니다.");
 			return;
