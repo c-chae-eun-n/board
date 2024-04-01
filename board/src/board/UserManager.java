@@ -5,12 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UserManager implements CRUD {
+public class UserManager implements CRUDManager<User> {
 	
 	private Map<User, ArrayList<Board>> userList;
 	
-	public UserManager(){
+	private UserManager(){
 		userList = new HashMap<>();
+	}
+	
+	private static UserManager instance = new UserManager();
+	
+	public static UserManager getInstance() {
+		return instance;
 	}
 
 	@Override
