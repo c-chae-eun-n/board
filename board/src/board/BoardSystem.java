@@ -219,7 +219,6 @@ public class BoardSystem {
 	
 	private void post() {
 		boardManager.create(log);
-		boardManager.printBoardAll();
 	}
 	
 	private void view() {
@@ -237,7 +236,7 @@ public class BoardSystem {
 		}
 		while(true) {
 			userManager.read(log);
-			int sel = inputNumber("조회할 게시물 번호 입력(종료 : 0번)");
+			int sel = inputNumber("\n조회할 게시물 번호 입력(종료 : 0번)");
 			if(sel == EXIT_MYPOST) {
 				break;
 			}
@@ -253,7 +252,7 @@ public class BoardSystem {
 		}
 		while(true) {
 			boardManager.read(log);
-			int sel = inputNumber("수정할 게시물 번호 입력(종료 : 0번)");
+			int sel = inputNumber("\n수정할 게시물 번호 입력(종료 : 0번)");
 			if(sel == EXIT_MYPOST) {
 				break;
 			}
@@ -270,7 +269,7 @@ public class BoardSystem {
 		}
 		while(true) {
 			userManager.read(log);
-			int sel = inputNumber("삭제할 게시물 번호 입력(종료 : 0번)");
+			int sel = inputNumber("\n삭제할 게시물 번호 입력(종료 : 0번)");
 			if(sel == EXIT_MYPOST) {
 				break;
 			}
@@ -286,7 +285,6 @@ public class BoardSystem {
 	
 	public void run() {
 		while(!isExit) {
-			userManager.printUserAll();
 			printMainMenu();
 			char select = inputString("메뉴 번호 입력").charAt(0);
 			runMainMenu(select);
