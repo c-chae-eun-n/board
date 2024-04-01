@@ -49,8 +49,7 @@ public class UserManager implements CRUD {
 
 	@Override
 	public void delete(User user) {
-		// TODO Auto-generated method stub
-		
+		userList.remove(user);
 	}
 	
 	public User checkLog(String id, String password) {
