@@ -65,11 +65,19 @@ public class UserManager implements CRUD {
 		userList.get(user).add(board);
 	}
 	
-	public void printMyBoard(User user, int sel) {
-		System.out.println(userList.get(user).get(sel));
+	public void printMyBoard(User user, int index) {
+		if(index < 0 || index >= userList.get(user).size()) {
+			return;
+		}
+		
+		System.out.println(userList.get(user).get(index));
 	}
 	
 	public String findTitleByIndex(User user, int index) {
+		if(index < 0 || index >= userList.get(user).size()) {
+			return null;
+		}
+		
 		String title = null;
 		
 		title = userList.get(user).get(index).getTitle();
@@ -78,6 +86,10 @@ public class UserManager implements CRUD {
 	}
 	
 	public Board deleteMyPost(User user, int index) {
+		if(index < 0 || index >= userList.get(user).size()) {
+			return null;
+		}
+		
 		Board board = userList.get(user).get(index);
 		userList.get(user).remove(index);
 		
