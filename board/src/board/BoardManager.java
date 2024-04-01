@@ -28,6 +28,7 @@ public class BoardManager implements CRUD {
 
 	@Override
 	public void read(User user) {
+		System.out.println("\n======== 내 게시판 ========");
 		int index = 1;
 		for(int i=0; i<boardList.size(); i++) {
 			Board board = boardList.get(i);
