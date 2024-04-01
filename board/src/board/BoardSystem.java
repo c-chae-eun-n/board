@@ -19,8 +19,8 @@ public class BoardSystem {
 	private final int TYPE_OUT = 1;
 	private final int TYPE_IN = 2;
 	
-	private final String PREVIOUS = "a";
-	private final String NEXT = "d";
+	private final char PREVIOUS = 'a';
+	private final char NEXT = 'd';
 	
 	private Scanner scan = new Scanner(System.in);
 	private UserManager userManager;
@@ -118,8 +118,14 @@ public class BoardSystem {
 		return result;
 	}
 	
-	private void runMainMenu(int select) {
-		if(select == JOIN && checkLog(TYPE_OUT)) {
+	private void runMainMenu(char select) {
+		if(select == PREVIOUS) {
+
+		}
+		else if(select == NEXT) {
+			
+		}
+		else if(select == JOIN && checkLog(TYPE_OUT)) {
 			join();
 		}
 		else if(select == LEAVE && checkLog(TYPE_IN)) {
@@ -256,7 +262,7 @@ public class BoardSystem {
 		while(!isExit) {
 			userManager.printUserAll();
 			printMainMenu();
-			int select = inputNumber("메뉴 번호 입력");
+			char select = inputString("메뉴 번호 입력").charAt(0);
 			runMainMenu(select);
 		}
 	}
