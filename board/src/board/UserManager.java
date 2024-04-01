@@ -81,6 +81,17 @@ public class UserManager implements CRUD {
 		
 		return title;
 	}
+	
+	public Board deleteMyPost(User user, int index) {
+		Board board = userList.get(user).get(index);
+		userList.get(user).remove(index);
+		
+		return board;
+	}
+	
+	public int myBoardSize(User user) {
+		return userList.get(user).size();
+	}
 
 	// 검수용
 	public void printUserAll() {
