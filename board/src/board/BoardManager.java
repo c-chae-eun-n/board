@@ -45,8 +45,13 @@ public class BoardManager implements CRUD {
 
 	@Override
 	public void delete(User user) {
-		// TODO Auto-generated method stub
+		userManager.delete(user);
 		
+		for(int i=0; i<boardList.size(); i++) {
+			if(boardList.get(i).getUser().equals(user)) {
+				boardList.remove(i);
+			}
+		}
 	}
 	
 	private String inputString(String message) {
