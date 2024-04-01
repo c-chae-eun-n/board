@@ -86,4 +86,14 @@ public class BoardManager implements CRUD {
 		}
 	}
 	
+	
+	public void deleteMyPost(User user, int index) {
+		Board target = userManager.deleteMyPost(user, index);
+		
+		for(int i=0; i<boardList.size(); i++) {
+			if(target.equals(boardList.get(i))){
+				boardList.remove(i);
+			}
+		}
+	}
 }
