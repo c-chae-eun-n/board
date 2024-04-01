@@ -100,7 +100,7 @@ public class BoardSystem {
 			join();
 		}
 		else if(select == LEAVE && checkLog(TYPE_IN)) {
-			
+			leave();
 		}
 		else if(select == LOGIN && checkLog(TYPE_OUT)) {
 			login();
@@ -139,6 +139,18 @@ public class BoardSystem {
 		User user = new User(id, password);
 		
 		userManager.create(user);
+	}
+	
+	private void leave() {
+		String password = inputString("password");
+		if(!password.equals(log.getPassword())) {
+			System.err.println("회원정보가 일치하지 않습니다.");
+			return;
+		}
+		
+		boardManager.delete(log);
+		logout();
+		System.out.println("탈퇴가 완료되었습니다.");
 	}
 	
 	private void login() {
