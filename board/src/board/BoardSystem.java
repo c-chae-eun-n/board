@@ -161,7 +161,6 @@ public class BoardSystem {
 	private void post() {
 		boardManager.create(log);
 		boardManager.printBoardAll();
-		userManager.printUserBoardAll(log);
 	}
 	
 	private void view() {
