@@ -176,6 +176,10 @@ public class BoardSystem {
 	}
 	
 	private void update() {
+		if(userManager.myBoardSize(log) == 0) {
+			System.out.println("게시물이 없습니다.");
+			return;
+		}
 		while(true) {
 			boardManager.read(log);
 			int sel = inputNumber("수정할 게시물 번호 입력(종료 : 0번)");
