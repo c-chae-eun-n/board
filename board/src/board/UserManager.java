@@ -34,7 +34,7 @@ public class UserManager implements CRUD {
 
 	@Override
 	public void read(User user) {
-		System.out.println("=== 내 게시물 ===");
+		System.out.println("======== 내 게시판 ========");
 		for(int i=0; i<userList.get(user).size(); i++) {
 			System.out.printf(" [%d] ", i+1);
 			System.out.println(userList.get(user).get(i).getTitle());
