@@ -1,7 +1,7 @@
 package board;
 
 public class User {
-	String id, password;
+	private String id, password;
 	
 	public User() {
 		
