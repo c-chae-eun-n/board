@@ -129,7 +129,7 @@ public class BoardSystem {
 			update();
 		}
 		else if(sel == DELETE_MYPOST) {
-			
+			delete();
 		}
 	}
 	
@@ -185,6 +185,23 @@ public class BoardSystem {
 			
 			boardManager.updateMyPost(log, sel-1);
 			System.out.println("수정이 완료되었습니다.");
+		}
+	}
+	
+	private void delete() {
+		if(userManager.myBoardSize(log) == 0) {
+			System.out.println("게시물이 없습니다.");
+			return;
+		}
+		while(true) {
+			userManager.read(log);
+			int sel = inputNumber("삭제할 게시물 번호 입력(종료 : 0번)");
+			if(sel == EXIT) {
+				break;
+			}
+			
+			boardManager.deleteMyPost(log, sel-1);
+			System.out.println("삭제가 완료되었습니다.");
 		}
 	}
 	
