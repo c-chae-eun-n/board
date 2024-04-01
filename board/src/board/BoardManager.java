@@ -114,4 +114,8 @@ public class BoardManager implements CRUD {
 	public String getBoardTitle(int index) {
 		return boardList.get(index).getTitle();
 	}
+	
+	public Board getBoard(int index) {
+		return boardList.get(index);
+	}
 }
