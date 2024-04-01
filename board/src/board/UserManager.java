@@ -79,16 +79,16 @@ public class UserManager implements CRUDManager<User> {
 		System.out.println(userList.get(user).get(index));
 	}
 	
-	public String findTitleByIndex(User user, int index) {
+	public Board findBoardByIndex(User user, int index) {
 		if(index < 0 || index >= userList.get(user).size()) {
 			return null;
 		}
 		
-		String title = null;
+		Board board = null;
 		
-		title = userList.get(user).get(index).getTitle();
+		board = userList.get(user).get(index);
 		
-		return title;
+		return board;
 	}
 	
 	public Board deleteMyPost(User user, int index) {
