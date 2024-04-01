@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class BoardSystem {
 	
-	private final int JOIN = 1;
-	private final int LEAVE = 2;
-	private final int LOGIN = 3;
-	private final int LOGOUT = 4;
-	private final int POST = 5;
-	private final int MYPAGE = 6;
-	private final int EXIT = 0;
+	private final int JOIN = '1';
+	private final int LEAVE = '2';
+	private final int LOGIN = '3';
+	private final int LOGOUT = '4';
+	private final int POST = '5';
+	private final int MYPAGE = '6';
+	private final int EXIT = '0';
 	
 	private final int VIEW_MYPOST = 1;
 	private final int UPDATE_MYPOST = 2;
@@ -120,7 +120,7 @@ public class BoardSystem {
 	
 	private void runMainMenu(char select) {
 		if(select == PREVIOUS) {
-
+			previous();
 		}
 		else if(select == NEXT) {
 			
@@ -160,6 +160,12 @@ public class BoardSystem {
 		else if(sel == DELETE_MYPOST) {
 			delete();
 		}
+	}
+	
+	private void previous() {
+		if(curPageNum == 1) 
+			return;
+		curPageNum --;
 	}
 	
 	private void join() {
