@@ -50,6 +50,7 @@ public class BoardManager implements CRUD {
 		for(int i=0; i<boardList.size(); i++) {
 			if(boardList.get(i).getUser().equals(user)) {
 				boardList.remove(i);
+				i--;
 			}
 		}
 	}
