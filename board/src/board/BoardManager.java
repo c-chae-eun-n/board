@@ -32,7 +32,7 @@ public class BoardManager implements CRUD {
 		for(int i=0; i<boardList.size(); i++) {
 			Board board = boardList.get(i);
 			if(board.getUser().equals(user)) {
-				System.out.printf("[%d] %s\n", index++, board.getTitle());
+				System.out.printf(" [%d] %s\n", index++, board.getTitle());
 			}
 		}
 	}
