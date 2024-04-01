@@ -15,6 +15,7 @@ public class BoardSystem {
 	private final int VIEW_MYPOST = 1;
 	private final int UPDATE_MYPOST = 2;
 	private final int DELETE_MYPOST = 3;
+	private final int EXIT_MYPOST = 0;
 	
 	private final int TYPE_OUT = 1;
 	private final int TYPE_IN = 2;
@@ -123,7 +124,7 @@ public class BoardSystem {
 			previous();
 		}
 		else if(select == NEXT) {
-			
+			next();
 		}
 		else if(select == JOIN && checkLog(TYPE_OUT)) {
 			join();
@@ -166,6 +167,12 @@ public class BoardSystem {
 		if(curPageNum == 1) 
 			return;
 		curPageNum --;
+	}
+	
+	private void next() {
+		if(curPageNum == pageCount) 
+			return;
+		curPageNum ++;
 	}
 	
 	private void join() {
@@ -218,7 +225,7 @@ public class BoardSystem {
 		while(true) {
 			userManager.read(log);
 			int sel = inputNumber("조회할 게시물 번호 입력(종료 : 0번)");
-			if(sel == EXIT) {
+			if(sel == EXIT_MYPOST) {
 				break;
 			}
 			
@@ -234,7 +241,7 @@ public class BoardSystem {
 		while(true) {
 			boardManager.read(log);
 			int sel = inputNumber("수정할 게시물 번호 입력(종료 : 0번)");
-			if(sel == EXIT) {
+			if(sel == EXIT_MYPOST) {
 				break;
 			}
 			
@@ -251,7 +258,7 @@ public class BoardSystem {
 		while(true) {
 			userManager.read(log);
 			int sel = inputNumber("삭제할 게시물 번호 입력(종료 : 0번)");
-			if(sel == EXIT) {
+			if(sel == EXIT_MYPOST) {
 				break;
 			}
 			
