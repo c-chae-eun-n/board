@@ -38,8 +38,8 @@ public class BoardSystem {
 	private boolean isExit;
 	
 	public BoardSystem() {
-		userManager = new UserManager();
-		boardManager = new BoardManager(userManager);
+		userManager = UserManager.getInstance();
+		boardManager = BoardManager.getInstance();
 		log = null;
 		isExit = false;
 	}
@@ -191,15 +191,15 @@ public class BoardSystem {
 	}
 	
 	private void leave() {
-		String password = inputString("password");
-		if(!password.equals(log.getPassword())) {
-			System.err.println("회원정보가 일치하지 않습니다.");
-			return;
-		}
-		
-		boardManager.delete(log);
-		logout();
-		System.out.println("탈퇴가 완료되었습니다.");
+//		String password = inputString("password");
+//		if(!password.equals(log.getPassword())) {
+//			System.err.println("회원정보가 일치하지 않습니다.");
+//			return;
+//		}
+//		
+//		boardManager.delete(log);
+//		logout();
+//		System.out.println("탈퇴가 완료되었습니다.");
 	}
 	
 	private void login() {
@@ -220,7 +220,11 @@ public class BoardSystem {
 	}
 	
 	private void post() {
-		boardManager.create(log);
+		String title = boardManager.inputString("Title");
+		String body = boardManager.inputString("Content");
+		Board board = new Board(title, body, log);
+		boardManager.create(board);
+		userManager.addUserBoard(log, board);
 	}
 	
 	private void view() {
@@ -248,20 +252,20 @@ public class BoardSystem {
 	}
 	
 	private void updateMyPost() {
-		if(userManager.myBoardSize(log) == 0) {
-			System.out.println("게시물이 없습니다.");
-			return;
-		}
-		while(true) {
-			boardManager.read(log);
-			int sel = inputNumber("\n수정할 게시물 번호 입력(종료 : 0번)");
-			if(sel == EXIT_MYPOST) {
-				break;
-			}
-			
-			boardManager.updateMyPost(log, sel-1);
-			System.out.println("수정이 완료되었습니다.");
-		}
+//		if(userManager.myBoardSize(log) == 0) {
+//			System.out.println("게시물이 없습니다.");
+//			return;
+//		}
+//		while(true) {
+//			boardManager.read(log);
+//			int sel = inputNumber("\n수정할 게시물 번호 입력(종료 : 0번)");
+//			if(sel == EXIT_MYPOST) {
+//				break;
+//			}
+//			
+//			boardManager.updateMyPost(log, sel-1);
+//			System.out.println("수정이 완료되었습니다.");
+//		}
 	}
 	
 	private void deleteMyPost() {
