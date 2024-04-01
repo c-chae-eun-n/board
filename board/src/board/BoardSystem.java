@@ -252,20 +252,21 @@ public class BoardSystem {
 	}
 	
 	private void updateMyPost() {
-//		if(userManager.myBoardSize(log) == 0) {
-//			System.out.println("게시물이 없습니다.");
-//			return;
-//		}
-//		while(true) {
-//			boardManager.read(log);
-//			int sel = inputNumber("\n수정할 게시물 번호 입력(종료 : 0번)");
-//			if(sel == EXIT_MYPOST) {
-//				break;
-//			}
-//			
-//			boardManager.updateMyPost(log, sel-1);
-//			System.out.println("수정이 완료되었습니다.");
-//		}
+		if(userManager.myBoardSize(log) == 0) {
+			System.out.println("게시물이 없습니다.");
+			return;
+		}
+		while(true) {
+			userManager.read(log);
+			int sel = inputNumber("\n수정할 게시물 번호 입력(종료 : 0번)");
+			if(sel == EXIT_MYPOST) {
+				break;
+			}
+			
+			Board board = userManager.findBoardByIndex(log, sel-1);
+			boardManager.update(board);
+			System.out.println("수정이 완료되었습니다.");
+		}
 	}
 	
 	private void deleteMyPost() {
