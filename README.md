@@ -61,3 +61,4 @@
 <img src="images/board.jpg" width="650"> <br><br>
 
 ## DEMO
+<img src="images/boardGif.gif" width="400"> <br><br>
