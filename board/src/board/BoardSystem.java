@@ -50,18 +50,18 @@ public class BoardSystem {
 		pageCount = count / pageSize;
 		pageCount = count % pageSize > 0 ? ++ pageCount : pageCount;
 		
-		System.out.println("----------------");
+		System.out.println("--------------------------");
 		for(int i=startRow; i<=endRow; i++) {
 			System.out.printf("%d) %s\n", i+1, boardManager.getBoard(i));
 		}
-		System.out.println("----------------");
-		System.out.printf("      %d/%d\n", curPageNum, pageCount);
+		System.out.println("--------------------------");
+		System.out.printf("  ◀ 이전(a)  %d/%d  다음(d) ▶\n", curPageNum, pageCount);
 	}
 	
 	private void printMainMenu() {
-		System.out.println("=== 콘솔 게시판 ===");
+		System.out.println("======== 콘솔 게시판 ========");
 		paging();
-		System.out.println("================");
+		System.out.println("==========================");
 		System.out.println(" [1] 회원가입");
 		System.out.println(" [2] 회원탈퇴");
 		System.out.println(" [3] 로그인");
@@ -69,7 +69,7 @@ public class BoardSystem {
 		System.out.println(" [5] 게시물 작성");
 		System.out.println(" [6] 마이페이지");
 		System.out.println(" [0] 종료");
-		System.out.println("================");
+		System.out.println("==========================");
 	}
 	
 	private void printMypageMenu() {
