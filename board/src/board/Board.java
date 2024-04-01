@@ -34,11 +34,11 @@ public class Board {
 	public String toString() {
 		String info = "";
 		
-		info += "================\n";
-		info += "title : " + this.title + "\n";
-		info += "----------------\n";
-		info += "content : " + this.body + "\n";
-		info += "================\n";
+		info += "==========================\n";
+		info += " title : " + this.title + "\n";
+		info += "--------------------------\n";
+		info += " content : " + this.body + "\n";
+		info += "==========================\n";
 		
 		return info;
 	}
