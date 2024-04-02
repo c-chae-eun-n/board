@@ -57,7 +57,8 @@
 
 
 ## Class Diagram (UML)
-<!-- <img src="" width="300"> -->
+<!-- <img src="images/boardSystem.jpg" width="300"> -->
+<img src="images/boardSystem.jpg" width="650"> <br><br>
 
 ## DEMO
 <img src="images/boardGif.gif" width="400"> <br><br>
