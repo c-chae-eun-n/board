@@ -33,6 +33,7 @@ public class BoardSystem {
 	private int pageCount = 1;			// 전체 페이지 개수
 	private int startRow = 0;			// 현재 페이지의 게시글 시작 번호
 	private int endRow = 0;				// 현재 페이지의 게시글 마지막 번호
+	private int count;
 	
 	private User log;
 	private boolean isExit;
@@ -46,7 +47,7 @@ public class BoardSystem {
 	
 	private void paging() {
 		// paging
-		int count = boardManager.boardListSize();
+		count = boardManager.boardListSize();
 		
 		startRow = (curPageNum - 1) * pageSize;
 		endRow = startRow + pageSize - 1;
@@ -229,10 +230,9 @@ public class BoardSystem {
 	
 	private void view() {
 		int sel = inputNumber("조회할 게시글 번호 입력");
-		if(sel < startRow || sel > endRow) 
+		if(sel < 1 || sel > count) 
 			return;
-		
-		System.out.println(boardManager.getBoard(sel-1));
+		System.out.print("\n"+boardManager.getBoard(sel-1));
 	}
 	
 	private void viewMyPost() {
