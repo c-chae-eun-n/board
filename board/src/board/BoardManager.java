@@ -56,14 +56,12 @@ public class BoardManager implements CRUDManager<Board> {
 
 	@Override
 	public void delete(Board board) {
-//		userManager.delete(user);
-//		
-//		for(int i=0; i<boardList.size(); i++) {
-//			if(boardList.get(i).getUser().equals(user)) {
-//				boardList.remove(i);
-//				i--;
-//			}
-//		}
+		for(int i=0; i<boardList.size(); i++) {
+			if(boardList.get(i).equals(board)) {
+				boardList.remove(i);
+				i--;
+			}
+		}
 	}
 	
 	public String inputString(String message) {
