@@ -71,14 +71,6 @@ public class UserManager implements CRUDManager<User> {
 		userList.get(user).add(board);
 	}
 	
-	public void printMyBoard(User user, int index) {
-		if(index < 0 || index >= userList.get(user).size()) {
-			return;
-		}
-		
-		System.out.println(userList.get(user).get(index));
-	}
-	
 	public Board findBoardByIndex(User user, int index) {
 		if(index < 0 || index >= userList.get(user).size()) {
 			return null;
