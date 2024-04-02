@@ -192,15 +192,22 @@ public class BoardSystem {
 	}
 	
 	private void leave() {
-//		String password = inputString("password");
-//		if(!password.equals(log.getPassword())) {
-//			System.err.println("회원정보가 일치하지 않습니다.");
-//			return;
-//		}
-//		
-//		boardManager.delete(log);
-//		logout();
-//		System.out.println("탈퇴가 완료되었습니다.");
+		String password = inputString("password");
+		if(!password.equals(log.getPassword())) {
+			System.err.println("회원정보가 일치하지 않습니다.");
+			return;
+		}
+		
+		for(int i=0; i<userManager.myBoardSize(log); i++) {
+			Board board = userManager.findBoardByIndex(log, i);
+			if(board == null)
+				continue;
+			boardManager.delete(board);
+		}
+		userManager.delete(log);
+		
+		logout();
+		System.out.println("탈퇴가 완료되었습니다.");
 	}
 	
 	private void login() {
