@@ -254,7 +254,8 @@ public class BoardSystem {
 				break;
 			}
 			
-			userManager.printMyBoard(log, sel-1);
+			Board board = userManager.findBoardByIndex(log, sel-1);
+			boardManager.read(board);
 		}
 	}
 	
