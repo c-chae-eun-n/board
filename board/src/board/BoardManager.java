@@ -29,14 +29,11 @@ public class BoardManager implements CRUDManager<Board> {
 
 	@Override
 	public void read(Board board) {
-//		System.out.println("\n======== 내 게시판 ========");
-//		int index = 1;
-//		for(int i=0; i<boardList.size(); i++) {
-//			Board board = boardList.get(i);
-//			if(board.getUser().equals(user)) {
-//				System.out.printf(" [%d] %s\n", index++, board.getTitle());
-//			}
-//		}
+		for(int i=0; i<boardList.size(); i++) {
+			if(boardList.get(i).equals(board)) {
+				System.out.print("\n" + boardList.get(i));
+			}
+		}
 	}
 
 	@Override
